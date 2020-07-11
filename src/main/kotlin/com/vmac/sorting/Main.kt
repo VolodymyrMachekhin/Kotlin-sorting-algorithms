@@ -7,16 +7,19 @@ import kotlin.system.measureTimeMillis
 fun main() {
     val array = IntArray(size = 100000) { Random.nextInt(range = 0..100000) }
     listOf(
-        BinaryHeapSort,
         BubbleSort,
+        SelectionSort,
         InsertionSort,
+        BinaryInsertion,
         MergeSort,
         QuickSort,
         RadixSort,
-        SelectionSort
+        BinaryHeapSort,
+        ShellSort
     ).forEach {
+        val copy = array.copyOf()
         val time = measureTimeMillis {
-            it.sort(array.copyOf())
+            it.sort(copy)
         }
         println("Time in mills for ${it.javaClass.simpleName}: $time")
     }
