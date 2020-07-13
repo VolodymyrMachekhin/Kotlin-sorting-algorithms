@@ -8,6 +8,7 @@ fun main() {
     val array = IntArray(size = 100000) { Random.nextInt(range = 0..100000) }
     listOf(
         BubbleSort,
+        CombSort,
         SelectionSort,
         InsertionSort,
         BinaryInsertion,
@@ -15,7 +16,8 @@ fun main() {
         QuickSort,
         RadixSort,
         BinaryHeapSort,
-        ShellSort
+        ShellSort,
+        PigeonHoleSort
     ).forEach {
         val copy = array.copyOf()
         val time = measureTimeMillis {
