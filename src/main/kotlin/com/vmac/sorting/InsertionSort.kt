@@ -4,18 +4,13 @@ object InsertionSort : SortingAlgorithm {
 
     override fun sort(array: IntArray) {
         for (i in 1 until array.size) {
-            var insertionIndex = i
-            for (j in 0 until i) {
-                if (array[i] < array[j]) {
-                    insertionIndex = j
-                    break
-                }
-            }
             val temp = array[i]
-            for (j in i downTo insertionIndex + 1) {
+            var j = i
+            while (j > 0 && array[j - 1] > temp) {
                 array[j] = array[j - 1]
+                j--
             }
-            array[insertionIndex] = temp
+            array[j] = temp
         }
     }
 }
